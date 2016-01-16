@@ -1,0 +1,71 @@
+
+<leaf-element name="l-repeat">
+    <style>
+        l-repeat{
+
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+            border: solid 1px red;
+        }
+
+        l-repeat .go {
+            margin: 10px;
+            border-bottom: solid 1px #ccc;
+            padding: 10px;
+        }
+    </style>
+    <template>
+        <h3>l-repeat</h3>
+
+        <template repeat="{{person, index in persons}}">
+            <img src="{{person.name}}">
+
+
+        </template>
+
+    </template>
+
+    <script>
+        Leaf({
+            ready: function () {
+                var self = this;
+
+                self.persons = [
+                    {name: "bofei", age: 23},
+                    {name: "bofei1", age: 24}
+                ];
+
+
+                var i = 0;
+
+
+                setInterval(function () {
+                    if (i % 4 == 0) {
+                        self.persons.push({name: "bofei", age: 23 + i})
+
+                    }
+                    else if (i % 4 == 1) {
+                        self.persons.push({name: "bofei", age: 23 + i})
+
+                    }
+                    else if (i % 4 == 2) {
+
+                        self.persons.pop();
+
+                    }
+                    else if (i % 4 == 3) {
+                        self.persons.pop();
+                    }
+                    i++;
+
+
+                }, 2000);
+
+
+
+
+            }
+        });
+    </script>
+</leaf-element>

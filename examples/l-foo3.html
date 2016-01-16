@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="./css/css.css"/>
+
+
+<script src="./js/js.js"></script>
+
+<leaf-element name="l-foo3">
+    <style>
+        l-foo3 {
+
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+            border: solid 1px red;
+        }
+
+        l-foo3 .go {
+            margin: 10px;
+            border-bottom: solid 1px #ccc;
+            padding: 10px;
+        }
+    </style>
+    <template>
+        <h3>l-foo3</h3>
+
+        <template repeat="{{ person,index in persons}}">
+             <div class="go">{{name + age}}</div>
+
+
+            <div class="go">
+                <div>姓名：{{person.name}}</div>
+                <div>年龄：{{age | filter | filter}}</div>
+                <div>编号：{{index}}</div>
+
+            </div>
+
+
+        </template>
+
+    </template>
+
+    <script>
+        Leaf({
+            ready: function () {
+                var self = this;
+
+                self.persons = [
+                    {name: "bofei", age: 23},
+                    {name: "bofei1", age: 24}
+                ];
+
+
+
+
+                var i = 0;
+
+
+                setInterval(function () {
+                    if (i % 4 == 0) {
+                        self.persons.push({name: "bofei", age: 23 + i})
+
+                    }
+                    else if (i % 4 == 1) {
+                        self.persons.push({name: "bofei", age: 23 + i})
+
+                    }
+                    else if (i % 4 == 2) {
+
+                        self.persons.pop();
+
+                    }
+                    else if (i % 4 == 3) {
+                        self.persons.pop();
+                    }
+                    i++;
+
+
+                }, 2000);
+
+
+                this.onclick = function () {
+                    alert("l-foo1 is ready")
+                }
+            }
+        });
+    </script>
+</leaf-element>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test HTML Parser</title>
+    <script src="https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.js"></script>
+</head>
+<body>
+    <script>
+
+
+        function loadXMLString(txt)
+        {
+            if (window.DOMParser)
+            {
+                parser=new DOMParser();
+                xmlDoc=parser.parseFromString(txt,"text/xml");
+            }
+            else // code for IE
+            {
+                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async=false;
+                xmlDoc.loadXML(txt);
+            }
+            return xmlDoc;
+        }
+
+        var txt = '<section name="l-foo">\
+                <template>\
+                <style>\
+                l-foo{\
+            border: solid 1px red;\
+            display: block;\
+            padding: 10px;\
+        }\
+        </style>\
+                <h3>l-foo </h3>\
+        </template>\
+                <script>\
+        Leaf({\
+            ready: function () {\
+                this.onclick = function(){\
+                    alert("l-foo is ready")\
+                }\
+            }\
+        });\
+    <\/script>\
+    </section>';
+
+//        loadXMLString(txt);
+//        alert(loadXMLString(txt).firstChild.xml);
+
+        function parseHTML(txt1) {
+            var tmpNode = document.createElement('div');
+            tmpNode.innerHTML = txt1;
+            alert(tmpNode.innerHTML);
+
+            alert(tmpNode.firstChild.innerHTML);
+        }
+
+        parseHTML(txt);
+
+    </script>
+</body>
+</html>

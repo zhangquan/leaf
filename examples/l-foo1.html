@@ -1,0 +1,37 @@
+
+
+<leaf-element name="l-foo1">
+
+    <link rel="stylesheet" href="./css/css.css"/>
+
+
+    <script src="./js/js.js"></script>
+    <style>
+        l-foo1 {
+
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+            border: solid 1px red;
+        }
+
+        l-foo1 .go {
+            margin: 10px;
+            border-bottom: solid 1px #ccc;
+            padding: 10px;
+        }
+    </style>
+    <template>
+        <h3>l-foo1</h3>
+    </template>
+
+    <script>
+        Leaf({
+            ready: function () {
+                this.onclick = function () {
+                    alert("l-foo1 is ready")
+                }
+            }
+        });
+    </script>
+</leaf-element>

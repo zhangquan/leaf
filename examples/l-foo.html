@@ -1,0 +1,23 @@
+<leaf-element name="l-foo">
+    <style>
+        l-foo{
+            border: solid 1px red;
+            display: block;
+            padding: 10px;
+        }
+    </style>
+    <template>
+        <h3>l-foo </h3>
+    </template>
+    <script>
+        Leaf({
+            ready: function () {
+               this.onclick = function(){
+                   alert("l-foo is ready")
+               }
+
+            }
+        });
+    </script>
+
+</leaf-element>

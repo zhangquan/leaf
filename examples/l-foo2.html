@@ -1,0 +1,32 @@
+<link rel="import" href='l-foo1.html'/>
+<leaf-element name="l-foo2">
+    <style>
+        l-foo2 {
+
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+            border: solid 1px red;
+        }
+
+    </style>
+    <template>
+
+        <h3>{{title}}</h3>
+        <content></content>
+        <l-foo1></l-foo1>
+    </template>
+    <script>
+        Leaf({
+            ready: function () {
+                this.title =  "l-foo2";
+                this.onclick = function () {
+                    alert("l-foo2 is ready")
+                }
+            }
+        });
+
+    </script>
+
+
+</leaf-element>

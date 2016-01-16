@@ -1,0 +1,50 @@
+<leaf-element name="x-left">
+    <template>
+        <style>
+            x-left {
+                float: left;
+                width: 15%;
+            }
+            x-left ul li{
+                margin-top: 10px;
+            }
+        </style>
+        <ul>
+            <li><a href="#" data-name="l-foo">简单</a></li>
+            <li><a href="#" data-name="l-foo1">外链资源</a></li>
+            <li><a href="#" data-name="l-foo2">组件嵌套</a></li>
+            <li><a href="#" data-name="l-foo3">数据绑定</a></li>
+        </ul>
+    </template>
+
+    <script>
+        Leaf({
+            ready: function () {
+                var currentEle;
+                this.onclick = function (e) {
+                    var target = e.target;
+                    var name = target.getAttribute("data-name");
+
+                    if (name) {
+                        var iframe = document.querySelector("#iframe");
+                        if(currentEle){
+                            iframe.removeChild(currentEle)
+
+                        }
+
+
+                        currentEle = document.createElement(name);
+
+
+                        iframe.appendChild(currentEle);
+
+                    }
+
+                }
+
+
+            }
+        });
+    </script>
+
+</leaf-element>
